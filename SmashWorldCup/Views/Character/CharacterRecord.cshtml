@@ -1,0 +1,24 @@
+﻿@model SmashWorldCup.ViewModels.CharacterViewModel
+
+@{
+    var wins = @Model.Wins;
+    var c = String.Concat((@Model.Name).Where(c => !Char.IsWhiteSpace(c)));
+
+    var textClass = c + "Text";
+
+    ViewData["Title"] = @Model.Name;
+
+    for(int i=1; i <= wins; i++)
+    {
+        ViewData["Title"] += "*";
+    }
+}
+
+<img src="file:/D:/Gaming/Smash/World Cup/Logos/1 - Mario.jpg">
+
+<h1 class='@textClass'>@ViewData["Title"]</h1>
+
+<body class="@c">
+    <h3 class='@textClass'>All Time Record</h3>
+    @await Component.InvokeAsync("TournamentRankings", new { inID = @Model.ID })
+</body>

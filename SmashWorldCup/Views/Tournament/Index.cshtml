@@ -1,0 +1,30 @@
+﻿@model List<SmashWorldCup.Models.TournamentModel>
+
+@{
+    ViewData["Title"] = "Tournaments";   
+}
+
+@await Component.InvokeAsync("NavigationBar")
+
+<h1>Tournaments</h1>
+
+<div>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Year</th>
+            <th></th>
+        </tr>
+
+        @for(int i=0; i<Model.Count; i++)
+        {
+            <tr>
+               <td>@(i+1)</td>
+               <td>@Model[i].Name</td>
+               <td>@Model[i].Year</td>
+               <td><a href='@Url.Action("ViewTournament","Tournament", new { inTournamentID = @Model[i].ID })' class="btn button">View</a></td>
+            </tr>
+        }
+    </table>
+</div>

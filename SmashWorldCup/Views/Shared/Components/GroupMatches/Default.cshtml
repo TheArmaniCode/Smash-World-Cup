@@ -1,0 +1,99 @@
+﻿@model List<SmashWorldCup.ViewModels.MatchViewModel>
+
+@if (Model.Count != 0)
+{
+    <h3>@Model[0].Stage</h3>
+
+    @if (Model[0].StageID <= 14 || (Model[0].StageID >= 19 && Model[0].StageID <= 26))
+    {
+        @await Component.InvokeAsync("GroupTable", new { inTournamentID = Model[0].TournamentID, inStageID = Model[0].StageID });
+    }
+
+    <div name="matches">
+        @foreach (var match in Model)
+        {
+            <div class="groupMatch">
+                <div id="scoreDiv+@match.ID">
+                    @using (Html.BeginForm("EditMatch", "Tournament", new { inMatchID = @match.ID }))
+                    {
+                        <p class="paragraph">@match.Fighter1Name
+                            @match.Score1 - @match.Score2
+                            @match.Fighter2Name
+                            <input type="submit" value="Edit" class="btn button edit">
+                            <input type="button" id="btnEdit" value="Edit" class="btn button edit" onclick=showEditView(@match.ID); hidden></p>
+                    }
+                </div>
+                <div id="editDiv+@match.ID" style="display:none">
+                    <p>@match.Fighter1Name
+                        <input type="text" size="2" id="Score1Input+@match.ID" name="inScore1" @*onkeyup="checkButton(@match.ID);"*@>
+                        <input type="text" size="2" id="Score2Input+@match.ID" name="inScore2" @*onkeyup="checkButton(@match.ID);"*@>
+                        @match.Fighter2Name
+                        @*              <input type="submit" id="btnSave+@match.ID" disabled value="Save"> </p>*@
+                </div>
+                @if (@match.SuddenDeath != null)
+                {
+                    <p class="paragraph subtext">@match.SuddenDeathWinner wins on Sudden Death</p>
+                }
+                <p class="paragraph subtext">@match.Date</p>
+                <p class="paragraph subtext venue">@match.Venue</p>
+            </div>
+        }
+    </div>
+}
+
+@*<script>
+    window.onload = function()
+    {
+        checkButton();
+    };
+
+    function showEditView(matchID)
+    {
+        this.matchID = matchID;
+
+        var scoreDiv = document.getElementById("scoreDiv+" + matchID);
+        var editDiv = document.getElementById("editDiv+" + matchID);
+
+        editDiv.style.display = "block";
+        scoreDiv.style.display = "none";
+    }
+
+    function checkScoreInput(scoreInput, message)
+    {
+        this.scoreInput = scoreInput;
+        this.message = message;
+
+        if(!isNumber(scoreInput.value) || scoreInput.value === "") {
+            this.message.innerHTML = "Value must be a number";
+        }
+        else
+        {
+            this.message.innerHTML = "";
+        }
+
+        checkButton();
+    }
+
+    function checkButton(matchID)
+    {
+        this.matchID = matchID;
+
+        var score1Input = document.getElementById("Score1Input+" + matchID);
+        var score2Input = document.getElementById("Score2Input+" + matchID);
+        var btnSave = document.getElementById("btnSave+" + matchID);
+
+        if((isNumber(score1Input.value) && score1Input.value !== "") && (isNumber(score2Input.value) && score2Input.value !== "")) {
+            btnSave.disabled = false;
+        }
+
+        else {
+            btnSave.disabled = true;
+        }
+    }
+    
+    function isNumber(valueToCheck) {
+        return !isNaN(valueToCheck);
+    }
+
+</script>
+*@

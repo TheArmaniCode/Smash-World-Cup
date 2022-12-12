@@ -1,0 +1,47 @@
+﻿@model List<SmashWorldCup.Models.CharacterModel>
+
+@{
+    ViewData["Title"] = "Characters";
+
+    var charactersList = Model;
+}
+
+@await Component.InvokeAsync("NavigationBar")
+
+<h1>@ViewData["Title"]</h1>
+
+
+@using(Html.BeginForm("Index", "Character"))
+{
+    <input type="text" class="inputBox" id="inSearchValue" name="inSearchValue" size="60" />
+    <select id="categoryList" class="selectList" name="inSearchCategory">
+        <option value="Name">Name</option>
+        <option value="ID">ID</option>
+        <option value="Game">Game</option>
+    </select>
+    <input type="submit" class="button" id="btnSearch" name="btnSearch" /> 
+    <div class="listItem">
+         <table class="table sortable">
+             <thead>
+                 <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Rank</th>
+                    <th>Wins</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var character in Model)
+            {
+                <tr>
+                    <td><strong>@character.ID</strong></td>
+                    <td><strong>@character.Name</strong></td>
+                    <td><strong>@character.Rank</strong></td>
+                    <td><strong>@character.Wins</strong></td>
+                    <td><a href='@Url.Action("CharacterRecord","Character", new {inID = character.ID})' class="btn button viewButton"> View</a></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

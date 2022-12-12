@@ -1,0 +1,36 @@
+﻿@model List<SmashWorldCup.Models.CharacterModel>
+
+@{
+    var name = "inFighterID";
+    var id = "characterList";
+    var characterID = 0;
+
+    if(TempData["Amount"] != null)
+    {
+        name += TempData["Amount"].ToString();
+        id += TempData["Amount"].ToString();
+    }
+
+    if(TempData["CharacterID"] != null)
+    {
+        characterID = Int32.Parse(TempData["CharacterID"].ToString());
+    }
+}
+
+<select id="@id" name="@name" class="selectList">
+    <option value="">--Select a Character--</option>
+    @foreach(var character in Model)
+    {
+        <option value="@character.ID">@character.Name</option>
+    }
+</select>
+
+<script>
+
+    var characterID = @characterID;
+    var id = "@id";
+
+    var characterList = document.getElementById(id);
+    characterList.value = characterList.options[characterID].value;
+
+</script>

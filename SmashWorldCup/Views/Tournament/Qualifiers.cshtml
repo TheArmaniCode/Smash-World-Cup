@@ -1,0 +1,59 @@
+﻿@model SmashWorldCup.ViewModels.TournamentViewModel
+
+@{
+    ViewData["Title"] = @Model.Name;
+    var tournamentsCount = Int32.Parse(TempData["TournamentsCount"].ToString());
+}
+
+@await Component.InvokeAsync("NavigationBar")
+
+<a href='@Url.Action("ViewTournament","Tournament", new { inTournamentID = @Model.ID })' class="btn button" style="float:right">Finals</a>
+
+@if(Model.ID > 1)
+{
+    @using (Html.BeginForm("Qualifiers", "Tournament", new {inTournamentID = Model.ID - 1 }))
+    {
+        <input type="submit" class="btn button" style="float:left" value="<">
+    }
+}
+
+@if(Model.ID < tournamentsCount)
+{
+    @using (Html.BeginForm("Qualifiers", "Tournament", new {inTournamentID = Model.ID + 1 }))
+    {
+        <input type="submit" class="btn button" style="float:left" value=">">
+    }
+}
+
+<div>
+    @using(Html.BeginForm("Qualifiers", "Tournament"))
+    {
+        @await Component.InvokeAsync("TournamentList");
+        <input type="submit" name="btnSubmitTournament" value="Select" class="btn button" />
+    }
+</div>
+
+@if(@Model.Matches.Count != 0)
+{
+    <h1>@Model.Name Qualifying Round</h1>
+
+    <div id="groupMatches">
+        <h2>Group Stage</h2>
+        @for(int i=1; i<15; i++)
+        {
+            <div>
+                @await Component.InvokeAsync("GroupMatches", new { inTournamentID = @Model.ID, inStageID = i})
+            </div>
+        }
+    </div>
+
+    <div>
+        <h2>Play-Offs</h2>
+        @for(int i=15; i<19; i++)
+        {
+            <div>
+                @await Component.InvokeAsync("GroupMatches", new { inTournamentID = @Model.ID, inStageID = i})
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,29 @@
+﻿@model List<CharacterModel>
+
+@{
+    ViewData["Title"] = "Draws";
+}
+
+@await Component.InvokeAsync("NavigationBar")
+
+<select id="characters">
+    @foreach(var character in Model)
+    {
+        <option value="@character.ID">@character.Name</option>
+    }
+</select>
+<input type="text" id="drawnNumber" />
+<input type="button" id="drawButton" value="Draw" onclick="drawNumber()"/>
+
+<script>
+    function drawNumber()
+    {
+        var characters = document.getElementById("characters");
+        var drawnNumber = document.getElementById("drawnNumber")
+        var characterNumbers = characters.children;
+
+        let randomNumber = Math.floor(Math.random() * characters.options.length);
+        alert(characterNumbers[randomNumber].text);
+        //characterNumbers.remove(randomNumber);
+    };
+</script>

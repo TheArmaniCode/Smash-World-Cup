@@ -1,0 +1,35 @@
+﻿@model List<SmashWorldCup.ViewModels.TournamentRankingViewModel>
+
+@{
+    var characterClass = String.Concat((@Model[0].Character).Where(c => !Char.IsWhiteSpace(c))) + "Text";
+}
+
+<div>
+    <table class="table @characterClass">
+        <tr>
+            <th>Tournament</th>
+            <th>Position</th>
+            <th>Rank</th>
+        </tr>
+
+        @foreach(var ranking in @Model)
+        {
+            if(ranking.Host == true)
+            {
+                <tr>
+                    <td><strong>@ranking.Tournament</strong></td>
+                    <td><strong>@ranking.Position</strong></td>
+                    <td><strong>@ranking.Rank</strong></td>
+                </tr>
+            }
+            else
+            {
+                 <tr>
+                    <td>@ranking.Tournament</td>
+                    <td>@ranking.Position</td>
+                    <td>@ranking.Rank</td>
+                </tr>
+            }
+        }
+    </table>
+</div>

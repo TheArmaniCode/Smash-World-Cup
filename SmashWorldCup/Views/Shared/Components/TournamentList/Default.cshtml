@@ -1,0 +1,28 @@
+﻿@model List<SmashWorldCup.Models.TournamentModel>
+
+@{
+    var tournamentID = 0;
+
+    if(TempData["TournamentID"] != null)
+    {
+        tournamentID = Int32.Parse(TempData["TournamentID"].ToString());
+    }
+}
+
+<select id="tournamentList" name="inTournamentID" class="selectList">
+    <option value="">--Select a Tournament--</option>
+    @foreach(var tournament in Model)
+    {
+        <option value=@tournament.ID>@tournament.Name</option>
+    }
+</select>
+
+<script>
+
+    var tournamentID = @tournamentID;
+
+    var tournamentList = document.getElementById("tournamentList");
+
+    tournamentList.value = tournamentList.options[tournamentID].value;
+
+</script>

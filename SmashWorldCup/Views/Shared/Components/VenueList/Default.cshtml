@@ -1,0 +1,28 @@
+﻿@model List<SmashWorldCup.Models.VenueModel>
+
+@{
+    var venueID = 0;
+
+    if(TempData["VenueID"] != null)
+    {
+        venueID = Int32.Parse(TempData["VenueID"].ToString());
+    }
+}
+
+<select id="venueList" name="inVenueID" class="selectList">
+    <option value="">--Select a Venue--</option>
+    @foreach(var character in Model)
+    {
+        <option value="@character.ID">@character.Name</option>
+    }
+</select>
+
+<script>
+
+    var venueID = @venueID;
+
+    var venueList = document.getElementById("venueList");
+
+    venueList.value = venueList.options[venueID].value;
+
+</script>

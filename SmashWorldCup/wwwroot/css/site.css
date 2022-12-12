@@ -1,0 +1,698 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.box {
+    border-style: solid;
+    border-width: thin;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 20px;
+    /*padding-bottom: 25px;*/
+    width: 250px;
+}
+
+.button {
+    border-color: navy;
+    border-radius: 0.25rem;
+    margin-right: 5px;
+}
+
+.datetime {
+    border-radius: 0.25rem;
+}
+
+.edit {
+    float: right;
+    padding: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.groupTable {
+    border-style: solid;
+}
+
+.groupMatch {
+    border-style: solid;
+    border-width: thin;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.2em;
+    text-align: center;
+    padding-left:40px;
+    width: 400px;
+}
+
+.inputBox {
+    border-radius: 0.25rem;
+}
+
+.paragraph{
+    margin: 0;
+}
+
+.selectList {
+    border-radius: 0.25rem;
+}
+
+.subtext {
+    font-size: 12px;
+    padding-right: 50px;
+}
+
+.table {
+    border: 1px solid;
+}
+
+.textBox {
+    border-radius: 0.25rem;
+}
+
+.viewbutton {
+    float: right;
+}
+
+.venue {
+    padding-right: 50px;
+}
+
+.BanjoandKazooie {
+    background-color: saddlebrown
+}
+
+.BanjoandKazooieText {
+    color: orangered;
+}
+
+
+.Bayonetta {
+    background-color: black
+}
+
+.BayonettaText {
+    color: white;
+}
+
+.Bowser {
+    background-color: #EAE118
+}
+
+.BowserText {
+    color: darkgreen;
+}
+
+.BowserJr {
+    background-color: #EAE118
+}
+
+.BowserJrText {
+    color: darkgreen;
+}
+
+.Byleth {
+    background-color: #00D4B4
+}
+
+.CaptainFalcon {
+    background-color: #0C59D1
+}
+
+.CaptainFalconText {
+    color: #E60B0B;
+}
+
+.Chrom {
+    background-color: #1038DB;
+}
+
+.ChromText {
+    color: silver;
+}
+
+.Cloud {
+    background-color: black;
+}
+
+.CloudText {
+    color: silver;
+}
+
+.Corrin {
+    background-color: darkgrey;
+}
+
+.CorrinText {
+    color: dimgrey;
+}
+
+.DarkPit {
+    background-color: black
+}
+
+.DarkPitText {
+    color: white;
+}
+
+.DarkSamus {
+    background-color: black
+}
+
+.DarkSamusText {
+    color: royalblue;
+}
+
+.Daisy {
+    background-color: #FFAE28
+}
+
+.DaisyText {
+    color: brown;
+}
+
+.DiddyKong {
+    background-color: saddlebrown;
+}
+
+.DiddyKongText {
+    color: red;
+}
+
+.DonkeyKong {
+    background-color: saddlebrown;
+}
+
+.DonkeyKongText {
+    color: red;
+}
+
+.DuckHuntDuo {
+    background-color: brown;
+}
+
+.DuckHuntDuoText {
+    color: darkblue;
+}
+
+.Falco {
+    background-color: #1A46FC;
+}
+
+.FalcoText {
+    color: silver;
+}
+
+.Fox {
+    background-color: silver;
+}
+
+.FoxText {
+    color: darkorange;
+}
+
+.Ganondorf {
+    background-color: black;
+}
+
+.GanondorfText {
+    color: orangered;
+}
+
+.Greninja {
+    background-color: blue;
+}
+
+.GreninjaText {
+    color: hotpink;
+}
+
+.Hero {
+    background-color: mediumpurple;
+}
+
+.HeroText {
+    color: saddlebrown;
+}
+
+.IceClimbers {
+    background-color: royalblue;
+}
+
+.IceClimbersText {
+    color: hotpink;
+}
+
+.Ike {
+    background-color: darkblue;
+}
+
+.IkeText {
+    color: #FF4836;
+}
+
+.Incineroar {
+    background-color: #FF2503;
+}
+
+.Inkling {
+    background-color: darkorange;
+}
+
+.InklingText {
+    color: white;
+}
+
+.Isabelle {
+    background-color: yellow;
+}
+
+.IsabelleText {
+    color: forestgreen;
+}
+
+.Jigglypuff {
+    background-color: pink;
+}
+
+.JigglypuffText {
+    color: seagreen;
+}
+
+.Joker{
+    background-color:black;
+}
+
+.JokerText{
+    color:red;
+}
+
+.Kazuya {
+    background-color: #FFD483;
+}
+
+.Ken {
+    background-color: #FF4747;
+}
+
+.KenText {
+    color: gold;
+}
+
+.KingDedede {
+    background-color: gold;
+}
+
+.KingDededeText {
+    color: dodgerblue;
+}
+
+.KingKRool {
+    background-color: darkolivegreen;
+}
+
+.Kirby {
+    background-color: hotpink;
+}
+
+.KirbyText {
+    color: gold;
+}
+
+.Link {
+    background-color: forestgreen;
+}
+
+.LinkText {
+    color: gold;
+}
+
+.LittleMac {
+    background-color: forestgreen;
+}
+
+.Lucario {
+    background-color: #224DFF;
+}
+
+.Lucas {
+    background-color: gold;
+}
+
+.LucasText {
+    color: orangered;
+}
+
+.Lucina {
+    background-color: #1038DB;
+}
+
+.LucinaText {
+    color: darkblue;
+}
+
+.Luigi {
+    background-color: green;
+}
+
+.LuigiText {
+    color: blue;
+}
+
+.Mario {
+    background-color: red;
+}
+
+.MarioText{
+    color: blue;
+}
+
+.Marth {
+    background-color: #1038DB;
+}
+
+.MarthText {
+    color: darkblue;
+}
+
+.MegaMan {
+    background-color: #0055FF;
+}
+
+.MegaManText {
+    color: #003399;
+}
+
+.MetaKnight {
+    background-color: darkblue;
+}
+
+.MetaKnightText {
+    color: silver;
+}
+
+.Mewtwo {
+    background-color: mediumpurple;
+}
+
+.MewtwoText {
+    color: #650493;
+}
+
+.MiiBrawler {
+    background-color: red
+}
+
+.MiiSwordfighter {
+    background-color: blue
+}
+
+.MiiGunner {
+    background-color: gold;
+}
+
+.MinMin {
+    background-color: orangered;
+}
+
+.MinMinText {
+    color: limegreen;
+}
+
+.MrGameandWatch {
+    background-color: black;
+}
+
+.MrGameandWatchText {
+    color: white;
+}
+
+.Ness {
+    background-color: #EAE118;
+}
+
+.NessText {
+    color: red;
+}
+
+.Olimar {
+    background-color: #EAE118;
+}
+
+.OlimarText {
+    color: red;
+}
+
+.PacMan {
+    background-color: yellow;
+}
+
+.PacManText {
+    color: red;
+}
+
+.Palutena {
+    background-color: #00C64B;
+}
+
+.PalutenaText {
+    color: white;
+}
+
+.PeachText {
+    color: #F7D500;
+}
+
+.Peach {
+    background-color: hotpink;
+}
+
+.PeachText {
+    color: #F7D500;
+}
+
+.Pichu {
+    background-color: yellow;
+}
+
+.Pikachu{
+    background-color:yellow;
+}
+
+.PiranhaPlant{
+    background-color: forestgreen;
+}
+
+.PiranhaPlantText {
+    color: red;
+}
+
+.PitText {
+    color: dimgrey;
+}
+
+.PokemonTrainer {
+    background-color: red;
+}
+
+.PokemonTrainer {
+    color: white;
+}
+
+.PyraandMythra {
+    background-color: red;
+}
+
+.PyraandMythraText {
+    color: gold;
+}
+
+.Richter {
+    background-color: #28004B;
+}
+
+.RichterText {
+    color: #9017FA;
+}
+
+.Ridley {
+    background-color: #28004B;
+}
+
+.RidleyText {
+    color: #9017FA;
+}
+
+.R.O.B {
+    background-color: silver;
+}
+
+.Robin {
+    background-color: rebeccapurple;
+}
+
+.RobinText {
+    color: silver;
+}
+
+.RosalinaandLuma {
+    background-color: #01FFF3;
+}
+
+.RosalinaandLumaText {
+    color: gold;
+}
+
+.Roy {
+    background-color: #3A49FF;
+}
+
+.RoyText {
+    color: #FF4836;
+}
+
+.RyuText {
+    background-color: red
+}
+
+.Samus {
+    background-color: orangered
+}
+
+.Sephiroth {
+    background-color: silver;
+}
+
+.Sheik {
+    background-color: royalblue;
+}
+
+.SheikText {
+    color: goldenrod;
+}
+
+.Shulk {
+    background-color:red;
+}
+
+.ShulkText {
+    color: goldenrod;
+}
+
+.Snake {
+    background-color: silver;
+}
+
+.SnakeText {
+    color: darkslategrey;
+}
+
+.Sonic {
+    background-color: blue;
+}
+
+.SonicText {
+    color: white;
+}
+
+.Sora {
+    color:saddlebrown
+}
+
+.Steve {
+    background-color: deepskyblue;
+}
+
+.Terry {
+    background-color: #FF4747;
+}
+
+.TerryText {
+    color: white;
+}
+
+.ToonLink {
+    background-color: forestgreen;
+}
+
+.ToonLinkText {
+    color: yellow;
+}
+
+.Villager {
+    background-color: #FF4747;
+}
+
+.VillagerText {
+    color: #6A0000;
+}
+
+.Wario {
+    background-color: yellow;
+}
+
+.WarioText {
+    color: purple;
+}
+
+.WiiFitTrainer {
+    background-color: #01FFF3;
+}
+
+.WiiFitTrainerText {
+    color: dimgrey;
+}
+
+.Wolf {
+    background-color: silver;
+}
+
+.WolfText {
+    color: darkslategrey;
+}
+
+.YoungLink {
+    background-color: forestgreen;
+}
+
+.YoungLinkText {
+    color: gold;
+}
+
+.Yoshi {
+    background-color: forestgreen;
+}
+
+.YoshiText {
+    color: red;
+}
+
+.Zelda {
+    background-color: mediumpurple;
+}
+
+.ZeldaText {
+    color: gold;
+}
+
+.ZeroSuitSamus {
+    background-color: dodgerblue;
+}
+
+.ZeroSuitSamusText {
+    color: gold;
+}

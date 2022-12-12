@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Add Match";
+
+    var message = "";
+
+    if(TempData["message"] != null)
+    {
+        message = TempData["message"].ToString();
+    }
+}
+
+@await Component.InvokeAsync("NavigationBar")
+
+<h1>Add Match</h1>
+
+<p name="message" style="color: green">@message</p>
+
+@using(Html.BeginForm("Index", "Match"))
+{
+    <div id="addMatchDiv"> 
+        <h3>Fighter 1</h3>
+        @await Component.InvokeAsync("CharacterList", new { inAmount = 1 })
+        <h3>Score 1</h3>
+        <input type="text" size="2" name="inScore1" class="textBox" />
+        <h3>Score 2</h3>
+        <input type="text" size="2" name="inScore2" class="textBox" />
+        <h3>Fighter 2</h3>
+        @await Component.InvokeAsync("CharacterList", new { inAmount = 2 })
+        <h3>Tournament</h3>
+        @await Component.InvokeAsync("TournamentList")
+        <h3>Venue</h3>
+        @await Component.InvokeAsync("VenueList")
+        <h3>Stage</h3>
+        @await Component.InvokeAsync("StageList")
+        <h3>Date</h3>
+        <input type="datetime-local" name="inDate" /><br>
+        <div id="suddenDeath" style="display:none">
+            <h3>Sudden Death</h3>
+            <select id="suddenDeathList" name="inSuddenDeath" class="selectList">
+                <option value="">--Select Sudden Death Winner--</option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+        </div>
+        <input type="submit" name="btnAddMatch" value="+Add" class="btn button" />
+    </div>
+}
+
+<script>
+    window.onload = function()
+    {
+        var character1 = document.getElementById("characterList1");
+        var character2 = document.getElementById("characterList2");
+
+        var suddenDeath = document.getElementById("suddenDeath");
+
+        character1.onchange = function()
+        {          
+            if(checkSuddenDeath(character1.value, character2.value, suddenDeath)){
+                suddenDeath.options[1].value = character1.value;
+                suddenDeath.options[1].text = character1[character1.selectedIndex].text;
+            }
+        }
+
+        character2.onchange = function()
+        {
+            if(checkSuddenDeath(character1.value, character2.value, suddenDeath)){
+                suddenDeath.options[2].value = character2.value;
+                suddenDeath.options[2].text = character2[character2.selectedIndex].text;
+            }
+        }
+    };
+
+    function checkSuddenDeath(character1Value, character2Value, suddenDeath)
+    {
+        this.character1Value = character1Value;
+        this.character2Value = character2Value;
+        this.suddenDeath = suddenDeath;
+
+        if(character1Value !== "" || character2Value !== "") {
+            suddenDeath.style.display = "block";
+            return true;
+        }
+        else {
+            suddenDeath.style.display = "none";
+            return false;
+        }
+    }
+</script>
