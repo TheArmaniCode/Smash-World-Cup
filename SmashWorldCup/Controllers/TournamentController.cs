@@ -49,5 +49,13 @@ namespace SmashWorldCup.Controllers
 
             return View(tournament);
         }
+
+        public IActionResult QualifierGroup(int inTournamentID, int inStageID)
+        {
+            TempData["stageID"] = inStageID;
+            TempData["tournamentID"] = inTournamentID;
+
+            return View();
+        }
     }
 }

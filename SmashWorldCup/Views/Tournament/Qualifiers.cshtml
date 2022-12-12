@@ -41,8 +41,10 @@
         <h2>Group Stage</h2>
         @for(int i=1; i<15; i++)
         {
+            <a href='@Url.Action("QualifierGroup","Tournament", new { inTournamentID = @Model.ID, inStageID = i })' class="btn button"> Group Breakdown</a>
+
             <div>
-                @await Component.InvokeAsync("GroupMatches", new { inTournamentID = @Model.ID, inStageID = i})
+                @await Component.InvokeAsync("GroupTable", new { inTournamentID = Model.ID, inStageID = i})
             </div>
         }
     </div>

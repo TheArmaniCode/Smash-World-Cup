@@ -2,17 +2,15 @@
 {
     public class TournamentTableViewModel
     {
-        public TournamentTableViewModel(string inName/*, int inPlayed, int inWins, int inDraws, int inLosses, int inKOsFor, int inKOsAgainst, int inKOsDifference, int inPoints*/)
+        public TournamentTableViewModel(string inName, int inStageID, string inStage)
         {
             Name = inName;
-            //Played = inPlayed;
-            //Wins = inWins;
-            //Draws = inDraws;
-            //Losses = inLosses;
-            //KOsFor = inKOsFor;
-            //KOsAgainst = inKOsAgainst;
+            StageID = inStageID;
+            Stage = inStage;
         }
         public string Name { get; set; }
+        public int StageID { get; set; }
+        public string Stage { get; set; }
         public int Played { get; set; }
         public int Wins { get; set; }
         public int Draws { get; set; }

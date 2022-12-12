@@ -1,0 +1,11 @@
+﻿@{
+    //var stageID = ViewContext.RouteData.Values["inStageID"];
+    //var tournamentID = Int32.Parse(ViewContext.RouteData.Values["inTournamentID"].ToString());
+
+    var stageID = TempData["stageID"];
+    var tournamentID = TempData["tournamentID"];
+}
+
+@await Component.InvokeAsync("NavigationBar")
+
+@await Component.InvokeAsync("GroupMatches", new { inTournamentID = tournamentID, inStageID = stageID})

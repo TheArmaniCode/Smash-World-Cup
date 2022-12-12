@@ -147,15 +147,15 @@ namespace SmashWorldCup.Services
         public List<TournamentTableViewModel> CalculateTable(int inTournamentID, int inStageID)
         {
             var query = from m in _smashDbContext.Matches
-                          where m.TournamentID == inTournamentID
-                          && m.StageID == inStageID
-                          select new MatchViewModel
-                          {
-                              Fighter1 = m.Fighter1,
-                              Fighter2 = m.Fighter2,
-                              Score1 = m.Score1,
-                              Score2 = m.Score2
-                          };
+                        where m.TournamentID == inTournamentID
+                        && m.StageID == inStageID
+                        select new MatchViewModel
+                        {
+                            Fighter1 = m.Fighter1,
+                            Fighter2 = m.Fighter2,
+                            Score1 = m.Score1,
+                            Score2 = m.Score2
+                        };
 
             var matches = query.ToList();
 
@@ -166,6 +166,7 @@ namespace SmashWorldCup.Services
             }
 
             var table = new List<TournamentTableViewModel>();
+            var stage = _smashDbContext.TournamentStages.SingleOrDefault(s => s.ID == inStageID).Name;
 
             var characters =  matches.GroupBy(m => m.Fighter1Name)
                            .Select(grp => grp.First())
@@ -173,7 +174,7 @@ namespace SmashWorldCup.Services
 
             foreach (var character in characters)
             {
-                table.Add(new TournamentTableViewModel(character.Fighter1Name));
+                table.Add(new TournamentTableViewModel(character.Fighter1Name, inStageID, stage));
             }
 
             foreach(var character in table)

@@ -17,7 +17,7 @@
     }
 }
 
-<select id="@id" name="@name" class="selectList">
+<select id="@id" name="@name" class="js-example-basic-single">
     <option value="">--Select a Character--</option>
     @foreach(var character in Model)
     {
@@ -32,5 +32,9 @@
 
     var characterList = document.getElementById(id);
     characterList.value = characterList.options[characterID].value;
+
+    $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
 
 </script>
