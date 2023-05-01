@@ -26,18 +26,20 @@ namespace SmashWorldCup.Services
         public CharacterViewModel GetCharacterForView(int inID)
         {
             var query = from c in _smashDbContext.Characters
-                            join g in _smashDbContext.Games on c.GameID equals g.ID
-                            where c.ID == inID
-                            select new CharacterViewModel
-                            {
-                                ID = c.ID,
-                                Name = c.Name,
-                                Rank = c.Rank,
-                                GameID = g.ID,
-                                Game = g.Name,
-                                Wins = c.Wins,
-                                Logo = c.Logo
-                            };
+                        join g in _smashDbContext.Games on c.GameID equals g.ID
+                        where c.ID == inID
+                        select new CharacterViewModel
+                        {
+                            ID = c.ID,
+                            Name = c.Name,
+                            Rank = c.Rank,
+                            GameID = g.ID,
+                            Game = g.Name,
+                            Wins = c.Wins,
+                            Logo = c.Logo,
+                            Color = c.Color,
+                            TextColor = c.TextColor
+                        };
 
             var character = query.FirstOrDefault();
 
@@ -66,7 +68,8 @@ namespace SmashWorldCup.Services
                             Rank = r.Rank,
                             TournamentID = t.ID,
                             Tournament = t.Name,
-                            Host = r.Host
+                            Host = r.Host,
+                            Color = c.TextColor
                         };
 
             var rankings = query.ToList();

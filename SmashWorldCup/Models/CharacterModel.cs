@@ -10,5 +10,7 @@
         public int Host { get; set; }
         public int Wins { get; set; }
         public string? Logo { get; set; }
+        public string? Color { get; set; }
+        public string? TextColor { get; set; }
     }
 }

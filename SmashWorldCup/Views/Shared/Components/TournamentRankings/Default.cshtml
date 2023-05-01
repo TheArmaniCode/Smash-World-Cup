@@ -1,12 +1,8 @@
 ﻿@model List<SmashWorldCup.ViewModels.TournamentRankingViewModel>
 
-@{
-    var characterClass = String.Concat((@Model[0].Character).Where(c => !Char.IsWhiteSpace(c))) + "Text";
-}
-
 <div>
-    <table class="table @characterClass">
-        <tr>
+    <table class="table" style="color: @Model[0].Color; border-color: @Model[0].Color">
+        <tr style="border-color: @Model[0].Color">
             <th>Tournament</th>
             <th>Position</th>
             <th>Rank</th>
@@ -14,22 +10,22 @@
 
         @foreach(var ranking in @Model)
         {
-            if(ranking.Host == true)
-            {
-                <tr>
-                    <td><strong>@ranking.Tournament</strong></td>
-                    <td><strong>@ranking.Position</strong></td>
-                    <td><strong>@ranking.Rank</strong></td>
-                </tr>
-            }
-            else
-            {
-                 <tr>
-                    <td>@ranking.Tournament</td>
-                    <td>@ranking.Position</td>
-                    <td>@ranking.Rank</td>
-                </tr>
-            }
+                if(ranking.Host == true)
+                {
+                    <tr style="border-color: @Model[0].Color">
+                        <td><strong>@ranking.Tournament</strong></td>
+                        <td><strong>@ranking.Position</strong></td>
+                        <td><strong>@ranking.Rank</strong></td>
+                    </tr>
+                }
+                else
+                {
+                    <tr style="border-color: @Model[0].Color">
+                        <td>@ranking.Tournament</td>
+                        <td>@ranking.Position</td>
+                        <td>@ranking.Rank</td>
+                    </tr>
+                }
         }
     </table>
 </div>

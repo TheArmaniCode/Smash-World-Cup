@@ -2,9 +2,6 @@
 
 @{
     var wins = @Model.Wins;
-    var c = String.Concat((@Model.Name).Where(c => !Char.IsWhiteSpace(c)));
-
-    var textClass = c + "Text";
 
     ViewData["Title"] = @Model.Name;
 
@@ -14,11 +11,17 @@
     }
 }
 
-<img src="file:/D:/Gaming/Smash/World Cup/Logos/1 - Mario.jpg">
+@*<img src="file:/D:/Gaming/Smash/World Cup/Logos/1 - Mario.jpg">*@
 
-<h1 class='@textClass'>@ViewData["Title"]</h1>
-
-<body class="@c">
-    <h3 class='@textClass'>All Time Record</h3>
-    @await Component.InvokeAsync("TournamentRankings", new { inID = @Model.ID })
+<header style="background-color: @Model.Color">
+    @await Component.InvokeAsync("NavigationBar", new { inColor = @Model.TextColor }) <br />
+    <h1 style="color: @Model.TextColor">@ViewData["Title"]</h1>
+</header>
+<body style="background-color: @Model.Color">
+    <div>
+        <input type="text" id="backgroundColor" value="@Model.Color" style="display:none">
+        <input type="text" id="textColor" value="@Model.TextColor" style="display:none">
+        <h3 style="color: @Model.TextColor">All Time Record</h3><br>
+        @await Component.InvokeAsync("TournamentRankings", new { inID = @Model.ID })
+    </div>
 </body>

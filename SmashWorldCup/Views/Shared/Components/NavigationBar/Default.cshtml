@@ -1,5 +1,9 @@
-﻿<a href='@Url.Action("Index","Draw")' class="btn button"> Draws</a>
-<a href='@Url.Action("Index","Character")' class="btn button"> Characters Record</a>
-<a href='@Url.Action("Index","Tournament")' class="btn button"> Tournaments</a>
-<a href='@Url.Action("Index","Match")' class="btn button"> + Add Match</a>
+﻿@{
+    var color = TempData["ButtonColor"];
+}
+
+<a href='@Url.Action("Index","Draw")' class="btn button" style="color: @color; border-color: @color"> Draws</a>
+<a href='@Url.Action("Index","Character")' class="btn button" style="color: @color; border-color: @color"> Characters Record</a>
+<a href='@Url.Action("Index","Tournament")' class="btn button" style="color: @color; border-color: @color"> Tournaments</a>
+<a href='@Url.Action("Index","Match")' class="btn button" style="color: @color; border-color: @color"> + Add Match</a>
 <br />
