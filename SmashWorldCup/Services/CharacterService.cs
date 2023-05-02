@@ -99,5 +99,16 @@ namespace SmashWorldCup.Services
 
             return characters;
         }
+
+        public void UpdateCharacterProperties(int inCharacterID, string inColor, string inTextColor)
+        {
+            var character = GetCharacterByID(inCharacterID);
+
+            character.Color = inColor;
+            character.TextColor = inTextColor;
+
+            _smashDbContext.Update(character);
+            _smashDbContext.SaveChanges();
+        }
     }
 }

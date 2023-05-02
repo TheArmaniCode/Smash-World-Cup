@@ -2,6 +2,7 @@
 using SmashWorldCup.Data;
 using SmashWorldCup.Interfaces;
 using SmashWorldCup.Models;
+using SmashWorldCup.ViewModels;
 
 namespace SmashWorldCup.Controllers
 {
@@ -36,6 +37,21 @@ namespace SmashWorldCup.Controllers
             var character = _characterService.GetCharacterForView(inID);
 
             return View(character);
+        }
+
+        public IActionResult Properties(int inCharacterID)
+        {
+            var character = _characterService.GetCharacterForView(inCharacterID);
+
+            return View(character);
+        }
+
+        [HttpPost]
+        public IActionResult Properties(int inCharacterID, string inColor, string inTextColor)
+        {
+            _characterService.UpdateCharacterProperties(inCharacterID, inColor, inTextColor);
+
+            return View(inCharacterID);
         }
     }
 }
