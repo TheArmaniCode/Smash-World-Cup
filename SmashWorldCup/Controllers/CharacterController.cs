@@ -32,9 +32,9 @@ namespace SmashWorldCup.Controllers
             return View(characters);
         }
 
-        public IActionResult CharacterRecord(int inID)
+        public IActionResult CharacterRecord(int inCharacterID)
         {
-            var character = _characterService.GetCharacterForView(inID);
+            var character = _characterService.GetCharacterForView(inCharacterID);
 
             return View(character);
         }

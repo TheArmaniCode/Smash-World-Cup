@@ -18,7 +18,7 @@
 
 <header style="background-color: @Model.Color">
     @await Component.InvokeAsync("NavigationBar", new { inColor = @Model.TextColor }) <br />
-    <a href='@Url.Action("Properties","Character", new { inCharacterID = @Model.ID })' class="btn button" style="float:right; color: @Model.TextColor; border-color: @Model.TextColor"> Character Settings<i class="fa fa-gear" style="color: @Model.TextColor"></i></a>
+    <a href='@Url.Action("Properties","Character", new { inCharacterID = @Model.ID })' class="btn button navButton" style="color: @Model.TextColor; border-color: @Model.TextColor"> Character Settings<i class="fa fa-gear" style="color: @Model.TextColor"></i></a>
     <h1 style="color: @Model.TextColor">@ViewData["Title"]</h1>
 </header>
 <body style="background-color: @Model.Color">

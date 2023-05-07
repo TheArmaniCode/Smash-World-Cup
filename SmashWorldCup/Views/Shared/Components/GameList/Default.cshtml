@@ -1,0 +1,21 @@
+﻿@model List<SmashWorldCup.Models.GameModel>
+
+@{
+    var id = Int32.Parse(TempData["currentGameID"].ToString());
+}
+
+<select id="gameList" name="inGameID" class="js-example-basic-single">
+    @foreach(var game in Model)
+    {
+        <option value="@game.ID">@game.Name</option>
+    }
+</select>
+
+<script>
+    var id = @id;
+
+    var gameList = document.getElementById(gameList);
+    gameList.value = gameList.options[id].value;
+});
+
+</script>

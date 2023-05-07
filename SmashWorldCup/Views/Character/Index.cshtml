@@ -38,7 +38,7 @@
                     <td><strong>@character.Name</strong></td>
                     <td><strong>@character.Rank</strong></td>
                     <td><strong>@character.Wins</strong></td>
-                    <td><a href='@Url.Action("CharacterRecord","Character", new {inID = character.ID})' class="btn button viewButton"> View</a></td>
+                    <td><a href='@Url.Action("CharacterRecord","Character", new {inCharacterID = character.ID})' class="btn button viewButton"> View</a></td>
                 </tr>
             }
             </tbody>

@@ -4,11 +4,26 @@
     ViewData["Title"] = @Model.Name + " Properties";
 }
 
-<div class="box" style="color: @Model.TextColor; padding-bottom: 10px">
-    <!--using-->
-    <label>Character Color</label> <br />
-    <input type="color" id="inColor" name="inColor" value="@Model.Color" /> <br />
-    <label>Character Text Color</label> <br />
-    <input type="color" id="inTextColor" name="inTextColor" value="@Model.TextColor" /> <br />
-    <input type="submit" class="btn button" style="color: @Model.Color; border-color: @Model.TextColor" id="updateSettings" name="updateSettings" value="Update"/>
-</div>
+<header style="background-color: @Model.Color">
+    @await Component.InvokeAsync("NavigationBar", new { inColor = @Model.TextColor }) <br />
+    <h1 style="color: @Model.TextColor">@ViewData["Title"]</h1>
+</header>
+<body style="background-color: @Model.Color">
+    <a href='@Url.Action("CharacterRecord","Character", new {inCharacterID = @Model.ID})' class="btn button navButton" style="color:@Model.TextColor; border-color:@Model.TextColor; background-color:@Model.Color"> Back</a><br/>
+    <div class="box" style="color: @Model.TextColor; padding-bottom: 10px">
+        @using(Html.BeginForm("Property", "Character", new { inMatchID = @Model.ID }))
+        {
+            <label>Name</label> <br />
+            <input type="text" id="inName" name="inName" value="@Model.Name" /> <br />
+            <label>Game</label> <br />
+            @await Component.InvokeAsync("GameList", new { inGameID = @Model.GameID })
+            <label>Rating</label> <br />
+            @await Component.InvokeAsync("RatingList")
+            <label>Character Color</label> <br />
+            <input type="color" id="inColor" name="inColor" value="@Model.Color" /> <br />
+            <label>Character Text Color</label> <br />
+            <input type="color" id="inTextColor" name="inTextColor" value="@Model.TextColor" /> <br />
+            <input type="submit" class="btn button" style="color: @Model.TextColor; border-color: @Model.TextColor" id="updateSettings" name="updateSettings" value="Update"/>
+        }
+    </div>
+</body>
