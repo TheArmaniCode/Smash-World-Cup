@@ -100,12 +100,16 @@ namespace SmashWorldCup.Services
             return characters;
         }
 
-        public void UpdateCharacterProperties(int inCharacterID, string inColor, string inTextColor)
+        public void UpdateCharacterProperties(int inCharacterID, string inName, int inGameID, int inRating, string inColor, string inTextColor, string inLogo)
         {
             var character = GetCharacterByID(inCharacterID);
 
+            character.Name = inName;
+            character.GameID = inGameID;
+            character.Rating = inRating;
             character.Color = inColor;
             character.TextColor = inTextColor;
+            if (inLogo != null) character.Logo = inLogo;
 
             _smashDbContext.Update(character);
             _smashDbContext.SaveChanges();

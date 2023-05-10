@@ -1,21 +1,20 @@
-﻿@model List<SmashWorldCup.Models.GameModel>
+﻿@model SmashWorldCup.ViewModels.GameListViewModel
 
 @{
-    var id = Int32.Parse(TempData["currentGameID"].ToString());
+    var id = @Model.Character.GameID - 1;
 }
 
-<select id="gameList" name="inGameID" class="js-example-basic-single">
-    @foreach(var game in Model)
+<select id="gameList" name="inGameID" class="selectList js-example-basic-single" style="color: @Model.Character.TextColor; background-color:@Model.Character.Color; border-color: @Model.Character.TextColor">
+    @foreach(var game in Model.GameList)
     {
         <option value="@game.ID">@game.Name</option>
     }
 </select>
 
 <script>
+
     var id = @id;
 
-    var gameList = document.getElementById(gameList);
-    gameList.value = gameList.options[id].value;
-});
+    document.getElementById("gameList").selectedIndex = id;
 
 </script>

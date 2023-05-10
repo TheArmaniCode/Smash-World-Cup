@@ -1,24 +1,24 @@
 ﻿@model SmashWorldCup.ViewModels.CharacterViewModel
 
 @{
-    var wins = @Model.Wins;
-    var character = @Model;
-
     ViewData["Title"] = @Model.Name;
 
-    for(int i=1; i <= wins; i++)
+    var logo = @Model.Logo;
+
+    for(int i=1; i <= @Model.Wins; i++)
     {
         ViewData["Title"] += "*";
     }
 }
-
-@*<img src="file:/D:/Gaming/Smash/World Cup/Logos/1 - Mario.jpg">*@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <header style="background-color: @Model.Color">
     @await Component.InvokeAsync("NavigationBar", new { inColor = @Model.TextColor }) <br />
     <a href='@Url.Action("Properties","Character", new { inCharacterID = @Model.ID })' class="btn button navButton" style="color: @Model.TextColor; border-color: @Model.TextColor"> Character Settings<i class="fa fa-gear" style="color: @Model.TextColor"></i></a>
+    <div class="logoBox">
+        <img src="/img/Logos/@Model.Logo" class="logo" style="border-color: @Model.TextColor">
+    </div> 
     <h1 style="color: @Model.TextColor">@ViewData["Title"]</h1>
 </header>
 <body style="background-color: @Model.Color">

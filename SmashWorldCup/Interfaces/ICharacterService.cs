@@ -11,6 +11,6 @@ namespace SmashWorldCup.Interfaces
         CharacterModel GetCharacterByName(string inName);
         List<TournamentRankingViewModel> GetRankingsByCharacter(int inID);
         List<CharacterModel> SearchCharacters(string inSearchValue, string inSearchCategory);
-        void UpdateCharacterProperties(int inCharacterID, string inColor, string inTextColor);
+        void UpdateCharacterProperties(int inCharacterID, string inName, int inGameID, int inRating, string inColor, string inTextColor, string inLogo);
     }
 }

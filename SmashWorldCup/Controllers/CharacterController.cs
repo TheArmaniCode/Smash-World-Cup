@@ -47,9 +47,14 @@ namespace SmashWorldCup.Controllers
         }
 
         [HttpPost]
-        public IActionResult Properties(int inCharacterID, string inColor, string inTextColor)
+        public IActionResult Properties(int inCharacterID, string inName, int inGameID, int inRating, string inColor, string inTextColor, string inLogo)
         {
-            _characterService.UpdateCharacterProperties(inCharacterID, inColor, inTextColor);
+            _characterService.UpdateCharacterProperties(inCharacterID, inName, inGameID, inRating, inColor, inTextColor, inLogo);
+
+            if (inLogo != null && !System.IO.File.Exists("/img/Logos/" + inLogo))
+            {
+
+            }
 
             return View(inCharacterID);
         }

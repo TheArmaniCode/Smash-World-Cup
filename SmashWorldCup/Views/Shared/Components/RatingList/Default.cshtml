@@ -1,6 +1,19 @@
-﻿<select>
+﻿@model SmashWorldCup.Models.CharacterModel
+
+@{
+    var rating = Model.Rating - 3;
+}
+
+<select id="ratingList" name="inRating" class="selectList" style="color: @Model.TextColor; background-color: @Model.Color; border-color: @Model.TextColor" >
     @for(int i=3; i<10; i++)
     {
         <option value="@i">@i</option>
     }
 </select>
+
+<script>
+    var ratingIndex = @rating;
+
+    document.getElementById("ratingList").selectedIndex = ratingIndex;
+
+</script>
