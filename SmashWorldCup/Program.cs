@@ -18,6 +18,7 @@ builder.Services.AddDbContext<SmashDbContext>(x => x.UseSqlServer(connectionStri
 builder.Services.AddSession();
 
 builder.Services.AddScoped<ICharacterService, CharacterService>();
+builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IGameService, GameService>();
 builder.Services.AddScoped<IMatchService, MatchService>();
 builder.Services.AddScoped<IStageService, StageService>();

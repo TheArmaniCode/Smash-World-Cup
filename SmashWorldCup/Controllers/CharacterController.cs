@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Grpc.Core;
+using Microsoft.AspNetCore.Mvc;
 using SmashWorldCup.Data;
 using SmashWorldCup.Interfaces;
 using SmashWorldCup.Models;
@@ -10,10 +11,14 @@ namespace SmashWorldCup.Controllers
     {
         private readonly SmashDbContext _smashDbContext;
         private readonly ICharacterService _characterService;
-        public CharacterController(SmashDbContext smashDbContext, ICharacterService characterService)
+        private readonly IFileService _fileService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public CharacterController(SmashDbContext smashDbContext, ICharacterService characterService, IFileService fileService, IWebHostEnvironment webHostEnvironment)
         {
             _smashDbContext = smashDbContext;
             _characterService = characterService;
+            _fileService = fileService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index(string inSearchValue, string inSearchCategory)
@@ -47,13 +52,17 @@ namespace SmashWorldCup.Controllers
         }
 
         [HttpPost]
-        public IActionResult Properties(int inCharacterID, string inName, int inGameID, int inRating, string inColor, string inTextColor, string inLogo)
+        public IActionResult Properties(int inCharacterID, string inName, int inGameID, int inRating, string inColor, string inTextColor, IFormFile inLogo)
         {
-            _characterService.UpdateCharacterProperties(inCharacterID, inName, inGameID, inRating, inColor, inTextColor, inLogo);
+            var extension = Path.GetExtension(_webHostEnvironment.WebRootPath + "\\img\\Logos");
 
-            if (inLogo != null && !System.IO.File.Exists("/img/Logos/" + inLogo))
+            _fileService.AddLogo(inLogo);
+
+            _characterService.UpdateCharacterProperties(inCharacterID, inName, inGameID, inRating, inColor, inTextColor, inLogo.FileName);
+
+            if (inLogo != null && !System.IO.File.Exists("\\img\\Logos\\" + inLogo.FileName))
             {
-
+                _fileService.AddLogo(inLogo);
             }
 
             return View(inCharacterID);

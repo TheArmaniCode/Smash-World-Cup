@@ -11,7 +11,7 @@
 <body style="background-color: @Model.Color">
     <a href='@Url.Action("CharacterRecord","Character", new {inCharacterID = @Model.ID})' class="btn button navButton" style="color:@Model.TextColor; border-color:@Model.TextColor; background-color:@Model.Color"> Back</a><br/>
     <div class="box" style="color: @Model.TextColor; padding-bottom: 10px">
-        @using(Html.BeginForm("Properties", "Character", new { inCharacterID = @Model.ID }))
+        @using(Html.BeginForm("Properties", "Character", new { inCharacterID = @Model.ID, @enctype = "multipart/form-data" }))
         {
             <label>Name</label> <br />
             <input type="text" id="inName" name="inName" value="@Model.Name" class="inputBox" style="color: @Model.TextColor; background-color: @Model.Color; border-color: @Model.TextColor" /> <br />
@@ -25,8 +25,12 @@
             <input type="color" id="inTextColor" name="inTextColor" value="@Model.TextColor" style="border-color: @Model.TextColor" /> <br />
             <label>Character Logo:</label> <br />
             <img src="/img/Logos/@Model.Logo" class="logo" style="border-color: @Model.TextColor"> <br />
-            <input type="file" name="inLogo">
+            <input type="file" id="inLogo" name="inLogo"><br />
             <input type="submit" class="btn button" style="color: @Model.TextColor; border-color: @Model.TextColor" id="updateSettings" name="updateSettings" value="Update"/>
         }
     </div>
 </body>
+
+<script>
+    //check file type on upload, display error message and clear if not image
+</script>
