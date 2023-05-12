@@ -20,5 +20,10 @@ namespace SmashWorldCup.Controllers
 
             return View(characters);
         }
+
+        public IActionResult FinalsDraw()
+        {
+            return View();
+        }
     }
 }

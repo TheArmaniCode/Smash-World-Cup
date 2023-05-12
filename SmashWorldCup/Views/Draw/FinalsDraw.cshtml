@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Group Stage Draws";
+}
+
+@await Component.InvokeAsync("NavigationBar")
+
+<h1>World Cup Finals Draws</h1> <br />
+@using(Html.BeginForm("Index", "Draws"))
+{
+    <input type="button" id="drawButton" value="Group Stage Draw" style="display: block"/>
+}
+
+<div id="drawPots">
+    <div class="box">
+        <h3>Pot 1</h3>
+        <input type="text" id="pot1A" required/>
+        <input type="text" id="pot1B" required/>
+        <input type="text" id="pot1C" required/>
+        <input type="text" id="pot1D" required/>
+        <input type="text" id="pot1E" required/>
+        <input type="text" id="pot1F" required/>
+        <input type="text" id="pot1G" required/>
+        <input type="text" id="pot1H" required/>
+    </div>
+    <div class="box">
+        <h3>Pot 2</h3>
+        <input type="text" id="pot2A" required/>
+        <input type="text" id="pot2B" required/>
+        <input type="text" id="pot2C" required/>
+        <input type="text" id="pot2D" required/>
+        <input type="text" id="pot2E" required/>
+        <input type="text" id="pot2F" required/>
+        <input type="text" id="pot2G" required/>
+        <input type="text" id="pot2H" required/>
+    </div>
+    <div class="box">
+        <h3>Pot 3</h3>
+        <input type="text" id="pot3A" required/>
+        <input type="text" id="pot3B" required/>
+        <input type="text" id="pot3C" required/>
+        <input type="text" id="pot3D" required/>
+        <input type="text" id="pot3E" required/>
+        <input type="text" id="pot3F" required/>
+        <input type="text" id="pot3G" required/>
+        <input type="text" id="pot3H" required/>
+    </div>
+    <div class="box">
+        <h3>Pot 4</h3>
+        <input type="text" id="pot4A" required/>
+        <input type="text" id="pot4B" required/>
+        <input type="text" id="pot4C" required/>
+        <input type="text" id="pot4D" required/>
+        <input type="text" id="pot4E" required/>
+        <input type="text" id="pot4F" required/>
+        <input type="text" id="pot4G" required/>
+        <input type="text" id="pot4H" required/>
+    </div>
+</div>

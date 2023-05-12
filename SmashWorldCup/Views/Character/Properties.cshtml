@@ -24,8 +24,9 @@
             <label>Character Text Color</label> <br />
             <input type="color" id="inTextColor" name="inTextColor" value="@Model.TextColor" style="border-color: @Model.TextColor" /> <br />
             <label>Character Logo:</label> <br />
-            <img src="/img/Logos/@Model.Logo" class="logo" style="border-color: @Model.TextColor"> <br />
-            <input type="file" id="inLogo" name="inLogo"><br />
+            <img src="/img/Logos/@Model.Logo" class="logo" style="border-color: @Model.TextColor"> <br /><br />
+            <label>Upload New Logo:</label>
+            <input type="file" accept="image/*" id="inLogo" name="inLogo"><br /><br />
             <input type="submit" class="btn button" style="color: @Model.TextColor; border-color: @Model.TextColor" id="updateSettings" name="updateSettings" value="Update"/>
         }
     </div>

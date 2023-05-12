@@ -54,10 +54,6 @@ namespace SmashWorldCup.Controllers
         [HttpPost]
         public IActionResult Properties(int inCharacterID, string inName, int inGameID, int inRating, string inColor, string inTextColor, IFormFile inLogo)
         {
-            var extension = Path.GetExtension(_webHostEnvironment.WebRootPath + "\\img\\Logos");
-
-            _fileService.AddLogo(inLogo);
-
             _characterService.UpdateCharacterProperties(inCharacterID, inName, inGameID, inRating, inColor, inTextColor, inLogo.FileName);
 
             if (inLogo != null && !System.IO.File.Exists("\\img\\Logos\\" + inLogo.FileName))

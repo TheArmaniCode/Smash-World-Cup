@@ -1,29 +1,51 @@
 ﻿@model List<CharacterModel>
 
 @{
-    ViewData["Title"] = "Draws";
+    ViewData["Title"] = "Group Stage Draws";
 }
 
 @await Component.InvokeAsync("NavigationBar")
 
-<select id="characters">
+<select id="characters" style="display: none">
     @foreach(var character in Model)
     {
         <option value="@character.ID">@character.Name</option>
     }
 </select>
-<input type="text" id="drawnNumber" />
-<input type="button" id="drawButton" value="Draw" onclick="drawNumber()"/>
+
+<h1>Group Stage Draws</h1> <br />
+@using(Html.BeginForm("FinalsDraw", "Draws"))
+{
+    <input type="button" id="drawButton" value="Finals Draw" style="display: block"/>
+}
+
+<input type="text" id="drawnCharacter" />
+<input type="button" id="drawButton" value="Draw" style="display: block" onclick="drawNumber()"/>
+<select id="drawsList" style="display: none"></select>
 
 <script>
     function drawNumber()
     {
         var characters = document.getElementById("characters");
-        var drawnNumber = document.getElementById("drawnNumber")
+        var drawnCharacter = document.getElementById("drawnCharacter");
         var characterNumbers = characters.children;
 
         let randomNumber = Math.floor(Math.random() * characters.options.length);
-        alert(characterNumbers[randomNumber].text);
-        //characterNumbers.remove(randomNumber);
+
+        drawnCharacter.value = characterNumbers[randomNumber].text;
+        characters.options.remove(randomNumber);
+
+        //var drawsList = document.getElementById("drawsList");
+        //var option = document.createElement("option");
+        //option.value = randomNumber;
+        //option.text = "Option";
+        //drawsList.add(option);
+
+        drawnId.value = characters.options.length;
+
+        if(characters.options.length === 0) {
+            document.getElementById("drawButton").style.display = "none";
+        };
+
     };
 </script>
